@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 const Cancion = ({letra}) => {
     if ( letra.length === 0 ) return null;
@@ -11,5 +12,9 @@ const Cancion = ({letra}) => {
         </Fragment>
     );
 }
- 
+
+Cancion.propTypes = {
+    letra: PropTypes.string.isRequired
+}
+
 export default Cancion;

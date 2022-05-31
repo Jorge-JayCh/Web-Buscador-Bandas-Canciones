@@ -22,14 +22,12 @@ function App() {
       const url = `https://api.lyrics.ovh/v1/${artista}/${cancion}`;
       const url2 = `https://www.theaudiodb.com/api/v1/json/2/search.php?s=${artista}`;
       
-      const [ informacion, letra ] = await Promise.all([
-        axios.get(url2),
-        // axios.get(url)
+      const [ letra, informacion ] = await Promise.all([
+        axios.get(url),
+        axios.get(url2)
       ]);
       
-      // console.log(informacion.data.artists[0]);
-      // console.log(letra);
-      // guardarLetra(resultado.data.lyrics);
+      guardarLetra(letra.data.lyrics);
       guardarInfo(informacion.data.artists[0]);
     }
     consultarApiLetra();
